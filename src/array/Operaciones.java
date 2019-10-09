@@ -8,12 +8,12 @@ import java.util.Scanner;
 public class Operaciones {
     
     public int [] arreglo = new int[10];
-    public int opcion;
-    
+    Scanner lectura=new Scanner(System.in);
     
     public Operaciones(){
     
     this.mostrarMenu();
+    
    
     
      }
@@ -29,8 +29,9 @@ public class Operaciones {
                 + "5-Tamaño del Array\n"
                 + "6-Salir\n"
                 + "escoja opcion");
-        Scanner lectura=new Scanner(System.in);
-        opcion=lectura.nextInt();
+        
+        
+        int opcion=lectura.nextInt();
         this.cargarOpcion(opcion);
     
     }
@@ -38,18 +39,39 @@ public class Operaciones {
     public void leerArreglo(){
     
         System.out.println("la opcion escogida es leer arreglo");
+        System.out.println("digite los numeros");
+        for(int i=0;i<10;i++){
+        
+            arreglo[i]=lectura.nextInt();
+        
+        }
+        this.mostrarMenu();
     }
     
     public void escribirArreglo(){
     
         System.out.println("la opcion escogida es escribir arreglo");
+        System.out.println("los arreglos son");
+        for(int i=0;i<10;i++){
+            
+            System.out.println(arreglo[i]);
+            
+        }
+        this.mostrarMenu();
     
     }
     
     public void sumatoria(){
         
         System.out.println("la opcion escogida es sumatoria");
-    
+         
+         int sumatoria = 0;
+         for(int i=0;i<10;i++){
+           sumatoria = sumatoria + arreglo[i];
+                   
+        }        
+        System.out.println("la sumatoria es "+ sumatoria);
+        this.mostrarMenu();
     
     
     }
@@ -57,6 +79,7 @@ public class Operaciones {
     public void productoria(){
     
         System.out.println("la opcion escogida es productoria");
+        this.mostrarMenu();
     
     
     }
@@ -79,7 +102,10 @@ public class Operaciones {
             break;
             case 6: System.out.println("usted ha finalizado el programa ");
             break;
-        
+            default: 
+                System.out.println("opcion invalida, intente nuevamente ");
+                
+                this.mostrarMenu();
         
         
         }
